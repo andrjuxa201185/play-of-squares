@@ -1,50 +1,57 @@
+document.addEventListener("DOMContentLoaded", function () {
 
-const countOfSquare = 3;
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const countOfSquare = 4;
 let positionX = [];
-let speed = [];
 let positionY = [];
+let speed = [];
 
-for (let i = 0; i < countOfSquare; i++) {
-  speed[i] = 2 * i;
-  positionX[i] = speed[i];
-  positionY[i] = canvas.clientWidth / i + 1;
-  
-}
+const setParam = () => {
+  for (let i = 0; i < countOfSquare; i++) {
+    speed[i] = 2 * (i + 1);
+    positionX[i] = speed[i] + 50;
+    positionY[i] = 640 / (i + 1) ;
+  }
+};
 
+const drowSquares = () => {
+  for (let i = 0; i < countOfSquare; i++) {
+    ctx.fillRect(positionY[i] , positionX[i], 20, 20);
+  }
+}; 
 
-function animate() {  
-  let canvas = document.getElementById('canvas');
-  let ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientWidth); 
+const moveSquare = () => {
+  for (let i = 0; i < countOfSquare; i++) {
+    positionX[i] += speed[i];  
+  }
+};
 
-  // drowSquares(countOfSquare)
-  ctx.fillRect(positionY * 1, positionX, 20, 20);
-
-
-  // moveSquare()                                                                   )
-  positionX += speed;
-
-
-  if(positionX >= canvas.clientHeight) {
-    positionX = 0;
-    for (let i = 0; i < countOfSquare; i++) {
-      speed[i] = 2 * i;
-      positionX[i] = speed[i];
-      positionY[i] = canvas.clientWidth / i + 1;
-      
+const checkPositionOfSquare = () => {
+  let canvasHeight = canvas.clientHeight;
+  for (let i = 0; i < countOfSquare; i++) {
+    if(positionX[i] >= canvasHeight) {
+      positionX[i] = 0;
     }
   }
+};
+
+setParam();
+
+function animate() {  
+  ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight); 
+  drowSquares();
+  moveSquare();
+  checkPositionOfSquare();
 
 
   requestAnimationFrame(animate);
+
+
+
+  
 }
 
+animate();
 
-function drowSquares(countOfSquares, positionsX) {
-  for (let i = 0; i < countOfSquares; i++) {
-    ctx.fillRect(positionY[i] , positionsX[i], 20, 20);
-  }
-}
-
-
-document.body.onload = animate;
+});
