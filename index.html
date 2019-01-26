@@ -6,15 +6,44 @@
     <style>
       canvas {        
         background: yellow;
+        margin-top: 20px;
+      }
+      form{
+        width: 640px;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 18px;
+      }
+      .form-group{
+        margin-top: 20px;
       }
     </style>
   </head>
   <body>
     <div>
-      <button> Start </button>
-      <button> Stop </button>
+      <button id="start"> Start </button>
+      <button id="stop"> Stop </button>
       <span> Score: <span id="score"> 0 </span> </span>
     </div>
-    <canvas width="640" height="480" id="canvas"></canvas>      
+
+    <canvas width="640" height="480" id="canvas"></canvas>   
+    
+    <form action="#">
+      <fieldset>
+        <legend>SETTING:</legend>
+        <div class="form-group">
+          <label for="num">Number of square: </label>
+          <input type="number" name="num" max="1000">
+        </div>
+        <div class="form-group">
+          <label for="speed">Speed: </label>
+          <select name="speed" id="">
+            <option value="hard">HARD</option>
+            <option value="medium">MEDIUM</option>
+            <option value="easy" selected>EASY</option>
+          </select>
+        </div>
+      </fieldset>
+    </form>
   </body>
 </html>
