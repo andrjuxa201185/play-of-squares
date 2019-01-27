@@ -20,12 +20,28 @@
       .form-group{
         margin-top: 20px;
       }
+      button{
+        padding: 7px 20px;
+        font-size: 18px;
+      }
+      span{
+        font-size: 18px;
+      }
+      #apply{
+        background-color: skyblue;
+      }
+      #start{
+        background-color: green;
+      }
+      #stop{
+        background-color: red;
+      }
     </style>
   </head>
   <body>
     <div>
       <button id="start"> Start </button>
-      <button id="stop"> Stop </button>
+      <button id="stop" disabled> Stop </button>
       <span> Score: <span id="score"> 0 </span> </span>
     </div>
 
@@ -36,8 +52,8 @@
         <legend>SETTING:</legend>
 
         <div class="form-group">
-          <label for="num">Number of square: </label>
-          <input type="number" name="number" min="3" max="1000" placeholder="max = 1000">
+          <label for="num">Number of square(max=1000): </label>
+          <input type="number" name="number" min="3" max="1000" value="10">
         </div>
 
         <div class="form-group">
