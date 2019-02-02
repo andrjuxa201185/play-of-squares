@@ -1,0 +1,32 @@
+canvas {        
+    background: yellow;
+    margin-top: 20px;
+  }
+  form{
+    width: 640px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+  }
+  input{
+    width: 100px; 
+  }
+  .form-group{
+    margin-top: 20px;
+  }
+  button{
+    padding: 7px 20px;
+    font-size: 18px;
+  }
+  span{
+    font-size: 18px;
+  }
+  #apply{
+    background-color: skyblue;
+  }
+  #start{
+    background-color: green;
+  }
+  #stop{
+    background-color: red;
+  }

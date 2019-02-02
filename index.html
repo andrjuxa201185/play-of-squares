@@ -2,44 +2,12 @@
 <html>
   <head>
     <title> Qualium Systems Javascript test task </title>
-    <script src="square.js"></script>
-    <script src="play.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    <style>
-      canvas {        
-        background: yellow;
-        margin-top: 20px;
-      }
-      form{
-        width: 640px;
-        padding: 10px;
-        box-sizing: border-box;
-        font-size: 18px;
-      }
-      input{
-        width: 100px; 
-      }
-      .form-group{
-        margin-top: 20px;
-      }
-      button{
-        padding: 7px 20px;
-        font-size: 18px;
-      }
-      span{
-        font-size: 18px;
-      }
-      #apply{
-        background-color: skyblue;
-      }
-      #start{
-        background-color: green;
-      }
-      #stop{
-        background-color: red;
-      }
-    </style>
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./script/square.js"></script>
+    <script src="./script/play.js"></script>
+    <script type="text/javascript" src="./script/main.js"></script>
   </head>
+
   <body>
     <div>
       <button id="start"> Start </button>
@@ -47,7 +15,7 @@
       <span> Score: <span id="score"> 0 </span> </span>
     </div>
 
-    <canvas width="640" height="480" id="canvas"></canvas>   
+    <canvas width="1040" height="640" id="canvas"></canvas>   
     
     <form action="#" name="form1">
       <fieldset>

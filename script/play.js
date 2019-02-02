@@ -5,8 +5,8 @@ class Play {
         this.raf;
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
-        this.countOfSquare = 200;
-        this.speed = 2;
+        this.countOfSquare = 100;
+        this.speed = 4;
         this.score = 0;
         this.isAnimated = false;
         this.timeOut = [];
@@ -17,7 +17,19 @@ class Play {
         this.ctx.clearRect(0, 0, this.canvas.clientWidth, this.canvas.clientHeight); 
         for (let i = 0; i < this.countOfSquare; i++) {
             if (this.square[i]) {
-                this.square[i].drow(this.ctx);
+                if(this.square[i-1]){
+                    this.square[i].drow(this.ctx, this.square[i-1].positionX, this.square[i-1].positionY);
+                } 
+                if(this.square[i-2]){
+                    this.square[i].drow(this.ctx, this.square[i-2].positionX, this.square[i-2].positionY);
+                } 
+                if(this.square[i-3]){
+                    this.square[i].drow(this.ctx, this.square[i-3].positionX, this.square[i-3].positionY);
+                } 
+                else {
+                    this.square[i].drow(this.ctx, this.square[i].positionX, this.square[i].positionY);
+                }
+
                 this.square[i].move();
                 this.square[i].checkPosition(this.canvas);
             }
